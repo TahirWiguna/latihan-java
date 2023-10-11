@@ -1,16 +1,12 @@
 package com.twigu.latihan.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
@@ -44,18 +40,13 @@ public class User {
     @Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdAt = new Date();
 
-//    @Column(name = "created_by")
-//    private Long createdBy;
+    @Column(name = "created_by")
+    private Long createdBy;
 
-    @ManyToOne()
-    @JoinColumn(name = "created_by", referencedColumnName = "id", nullable = true)
-    @JsonBackReference
-    private User createdBy;
-
-//
 //    @ManyToOne()
-//    @JoinColumn(name = "creator")
-//    private User creator;
+//    @JoinColumn(name = "created_by", referencedColumnName = "id", nullable = true)
+//    @JsonBackReference
+//    private User createdBy;
 
     @Column(name = "updated_at")
     private Date updatedAt;
